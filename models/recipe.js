@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
+// TODO: Est-ce qu'on met une contrainte d'unicité ?
+
 const Recipe = sequelize.define('Recipe', {
   title: {
     type: DataTypes.STRING,
@@ -16,7 +18,7 @@ const Recipe = sequelize.define('Recipe', {
   },
   category: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   }
 });
 

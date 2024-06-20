@@ -1,0 +1,24 @@
+html
+html
+    head
+        title Form Tester
+    body
+        p Envie de partager une recette ?
+        form(action = "/new-recipe", method = "POST")
+            div
+                label(for = "title") Titre : 
+                input(name = "title" value = "")
+            br
+            div
+                label(for = "ingredients") Ingrédients : 
+                input(name = "ingredients" value = "")
+            br
+            div
+                label(for = "instructions") Instructions : 
+                input(name = "instructions" value = "")
+            br
+            div
+                label(for = "category") Catégorie : 
+                input(name = "category" value = "")
+            br
+            button(type = "submit") Cook it!
