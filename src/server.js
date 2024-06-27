@@ -1,43 +1,30 @@
+// Configuration de base
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
-const sequelize = require('../config/database');
-const recipe = require('../models/recipe');
-
-console.log("pouet");
-
 const upload = multer();
 const app = express();
 const port = 3000;
 
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname,"index.html"));
-});
-
-app.get('/new-recipe', (req, res) => {
-  res.render('form');
-});
-
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// for parsing application/json
-app.use(bodyParser.json()); 
+// Configuration base de données
+const sequelize = require('../config/database');
 
-// for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true })); 
-//form-urlencoded
-
-// for parsing multipart/form-data
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 app.use(upload.array()); 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/new-recipe', function(req, res){
-  console.log(req.body);
-  res.send("Merci ! Le backend n'est pas encore implémenté mais le formulaire fonctionne !");
+// Configuration des routes
+const addRecipeRouter = require('./routes/add_recipe');
+app.use('/add_recipe', addRecipeRouter);
+
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
 app.listen(port, async () => {

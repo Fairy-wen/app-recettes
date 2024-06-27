@@ -1,0 +1,33 @@
+html
+html
+    head
+        title Ajouter une recette
+        link(rel='stylesheet', href='/css/styles.css')
+    body
+
+        h1(style="text-align: center") Envie de partager une recette ?
+        form(action = "/add_recipe", method = "POST")
+            div(style="text-align: center")
+                label(for = "title") Titre : 
+                input#title.form-control(name = "title" placeholder = 'Titre de la recette')
+            br
+            div(style="text-align: center")
+                label(for = "ingredients") Ingrédients : 
+                input(name = "ingredients" placeholder = 'Liste des ingrédients')
+            br
+            div(style="text-align: center")
+                label(for = "instructions") Instructions : 
+                input(name = "instructions" placeholder = 'Étapes de préparation')
+            br
+            div(style="text-align: center")
+                label(for = "category") Catégorie : 
+                    input(type = 'radio' name = "category" value = "Entrée")
+                    label(for = "category") Entrée
+                    input(type = 'radio' name = "category" value = "Plat principal")
+                    label(for = "category") Plat principal
+                    input(type = 'radio' name = "category" value = "Dessert")
+                    label(for = "category") Dessert
+
+            br
+            div(style="text-align: center")
+                button(type = "submit") Envoyez !

@@ -1,0 +1,30 @@
+.btn {
+    background-color: #5dd161;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: #337534;
+    border: 1px solid black;
+    color: white;
+}
+
+.msg_box.error {
+    border: 1px solid red;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.msg_box.success {
+    border: 1px solid green;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 20px;
+}
