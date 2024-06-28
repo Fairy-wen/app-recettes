@@ -19,6 +19,7 @@ const Recipe = sequelize.define('Recipe', {
   category: {
     type: DataTypes.STRING,
     allowNull: true,
+    defaultValue: ""
   }
 });
 

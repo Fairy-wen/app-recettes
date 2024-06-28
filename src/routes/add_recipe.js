@@ -4,10 +4,12 @@ const recipe = require('../../models/recipe');
 const path = require('path');
 const app = express();
 
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '../views'));
 
 router.get('/', function(req, res){
+
     res.render('add_recipe');
 });
 
@@ -19,13 +21,12 @@ router.post('/', function(req, res){
     console.debug('Checking that all fields are fulfilled.');
     if(!recipeInfos.title 
     || !recipeInfos.ingredients 
-    || !recipeInfos.instructions
-    || !recipeInfos.category){
-        res.render('show_message', {
-        message: "Tous les champs doivent être remplis", type: "error"});
-    return
+    || !recipeInfos.instructions){
+        //alert("Certains champs ne sont pas remplis");
+        return
     }
     
+
     console.debug('Creating database recipe object to save.');
     const newRecipe = new recipe({
         title: recipeInfos.title,
@@ -37,15 +38,12 @@ router.post('/', function(req, res){
     console.debug('Saving recipe %s',recipeInfos.title);
     newRecipe.save(function(err, Recipe){
         if(err) {
-            res.render('show_message', {message: "Erreur en base de donnée", type: "error"});
+            //alert("Erreur en base de donnée : %s", err);
             return
         }
     });
 
-    res.render('show_message', {
-        message: "La recette a bien été ajoutée", type: "success", Recipe: recipeInfos});
-
-    //res.redirect('../');
+    res.redirect('../');
 
 });
 

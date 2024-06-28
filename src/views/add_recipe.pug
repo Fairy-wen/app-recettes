@@ -6,21 +6,22 @@ html
     body
 
         h1(style="text-align: center") Envie de partager une recette ?
+        p * : Requis
         form(action = "/add_recipe", method = "POST")
-            div(style="text-align: center")
-                label(for = "title") Titre : 
-                input#title.form-control(name = "title" placeholder = 'Titre de la recette')
+            div(style="text-align: justify")
+                label(for = "title" style = "text-align: left") * Titre : 
+                input(name = "title" placeholder = 'Titre de la recette' style = "text-align: right" required)
             br
-            div(style="text-align: center")
-                label(for = "ingredients") Ingrédients : 
-                input(name = "ingredients" placeholder = 'Liste des ingrédients')
+            div(style="text-align: justify")
+                label(for = "ingredients" style = "text-align: left") * Ingrédients : 
+                input(name = "ingredients" placeholder = 'Liste des ingrédients' style = "text-align: right" required)
             br
-            div(style="text-align: center")
-                label(for = "instructions") Instructions : 
-                input(name = "instructions" placeholder = 'Étapes de préparation')
+            div(style="text-align: justify")
+                label(for = "instructions" style = "text-align: left") * Instructions : 
+                input(name = "instructions" placeholder = 'Étapes de préparation' style = "text-align: right" required)
             br
-            div(style="text-align: center")
-                label(for = "category") Catégorie : 
+            div(style="text-align: justify")
+                label(for = "category", style = "text-align: left") Catégorie : 
                     input(type = 'radio' name = "category" value = "Entrée")
                     label(for = "category") Entrée
                     input(type = 'radio' name = "category" value = "Plat principal")
@@ -30,4 +31,4 @@ html
 
             br
             div(style="text-align: center")
-                button(type = "submit") Envoyez !
+                button(type = "submit") Chaud devant !

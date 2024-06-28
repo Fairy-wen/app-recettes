@@ -6,6 +6,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    border-radius: 10px;
     font-size: 20px;
 }
 
@@ -15,16 +16,12 @@
     color: white;
 }
 
-.msg_box.error {
-    border: 1px solid red;
-    font-size: 20px;
-    text-align: center;
-    padding: 10px 20px;
+button {
+    border-radius: 26px;
 }
 
-.msg_box.success {
-    border: 1px solid green;
-    font-size: 20px;
-    text-align: center;
-    padding: 10px 20px;
+button:hover { 
+    background-color: rgb(113, 140, 139); 
+    color: white; 
+    transition-delay: 0.4s;
 }
