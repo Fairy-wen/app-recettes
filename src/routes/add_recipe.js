@@ -10,7 +10,7 @@ app.set('views', path.join(__dirname, '../views'));
 
 router.get('/', function(req, res){
 
-    res.render('add_recipe');
+    res.render('add_recipe', { title: "Ajouter une recette" });
 });
 
 router.post('/', function(req, res){

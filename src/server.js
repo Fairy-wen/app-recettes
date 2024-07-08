@@ -24,7 +24,7 @@ const addRecipeRouter = require('./routes/add_recipe');
 app.use('/add_recipe', addRecipeRouter);
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { title: "La recette des cookies" });
 });
 
 app.listen(port, async () => {
