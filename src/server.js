@@ -36,7 +36,7 @@ app.listen(port, async () => {
     console.debug('Connection to the database has been established successfully.');
 
     // Synchronize the models with the database
-    await Recipe.sync({force: false});
+    await Recipe.sync({alter: true});
     console.debug('Database synchronized.');
 
     } catch (error) {

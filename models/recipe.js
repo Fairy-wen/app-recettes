@@ -20,8 +20,13 @@ const Recipe = sequelize.define('Recipe', {
     allowNull: false,
     defaultValue: 'Sans catégorie',
   }
-});
-
-
+},
+  {
+    getterMethods: {
+      url() {
+        return "/cookbook/recipe/" + this.id;
+      }
+    }
+  });
 
 module.exports = Recipe;

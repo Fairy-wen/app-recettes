@@ -40,3 +40,15 @@ exports.index = asyncHandler(async (req, res, next) => {
     });
 
 });
+
+exports.recipe_list = asyncHandler(async (req, res, next) => {
+    const allRecipes = await Recipe.findAll({ 
+        attributes: ['id', 'title', 'category'],
+        order: [
+            ['category', 'ASC'],
+            ['title', 'ASC',]
+        ]
+    });
+
+    res.render("recipe_list", { title: "Recipe List", recipe_list: allRecipes });
+});

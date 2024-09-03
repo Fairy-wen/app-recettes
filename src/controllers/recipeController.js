@@ -39,3 +39,8 @@ exports.recipe_create_post = function(req, res){
 
     res.redirect('/');
 };
+
+exports.recipe_details = function(req, res){
+    console.debug("displaying recipe details");
+    res.render('recipe_detail', { title: "Not yet implemented" });
+};
