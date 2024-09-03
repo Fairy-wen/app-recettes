@@ -3,7 +3,6 @@
     border: none;
     color: black;
     padding: 10px 20px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 10px;
@@ -24,4 +23,10 @@ button:hover {
     background-color: rgb(113, 140, 139); 
     color: white; 
     transition-delay: 0.4s;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
 }

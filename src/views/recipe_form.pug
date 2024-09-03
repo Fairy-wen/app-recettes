@@ -4,20 +4,20 @@ block content
 
     h1(style="text-align: center") Envie de partager une recette ?
     p * : Requis
-    form(action = "/add_recipe", method = "POST")
-        div(style="text-align: justify")
+    form(action = "/cookbook/recipe/add", method = "POST")
+        div
             label(for = "title" style = "text-align: left") * Titre : 
-            input(name = "title" placeholder = 'Titre de la recette' style = "text-align: right" required)
+            input(name = "title" placeholder = 'Titre de la recette' style = "text-align: left" required)
         br
-        div(style="text-align: justify")
+        div
             label(for = "ingredients" style = "text-align: left") * Ingrédients : 
-            input(name = "ingredients" placeholder = 'Liste des ingrédients' style = "text-align: right" required)
+            textarea(name = "ingredients" placeholder = 'Liste des ingrédients' style = "text-align: left" required)
         br
-        div(style="text-align: justify")
+        div
             label(for = "instructions" style = "text-align: left") * Instructions : 
-            input(name = "instructions" placeholder = 'Étapes de préparation' style = "text-align: right" required)
+            textarea( name = "instructions" placeholder = 'Étapes de préparation' style = "text-align: left" required)
         br
-        div(style="text-align: justify")
+        div
             label(for = "category", style = "text-align: left") Catégorie : 
                 input(type = 'radio' name = "category" value = "Entrée")
                 label(for = "category") Entrée
@@ -26,5 +26,5 @@ block content
                 input(type = 'radio' name = "category" value = "Dessert")
                 label(for = "category") Dessert
         br
-        div(style="text-align: center")
+        div
             button(type = "submit") Chaud devant !

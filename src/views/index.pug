@@ -2,11 +2,11 @@ extends layout
 
 block content
 
-    h1(style="text-align: center")= title
+    h1= title
 
-    h2(style="text-align: center") Qu'est-ce qu'on mange ?
+    h2 Récapitulatif
 
-    p(style="text-align: center") Des cookies !
+    p Le grimoire contient déjà !{recipe_count_with_category} recettes réparties dans !{category_count} catégories ainsi que !{recipe_count_without_category} sans catégorie.
 
-    div(style="text-align: center")
-        a.btn(href='./add_recipe') Ajouter une recette
+    div
+        a.btn(href='./recipe/add') Ajouter une recette
