@@ -1,0 +1,54 @@
+const { Sequelize } = require("sequelize");
+const Recipe = require("../../models/recipe");
+const asyncHandler = require("express-async-handler");
+const { Op } = require("sequelize");
+
+exports.index = asyncHandler(async (req, res, next) => {
+    
+    // Fetch data
+    const [
+        numRecipesWithCategory
+        ,numRecipesWithoutCategory
+        ,numCategories
+    ] = await Promise.all([
+        Recipe.count({
+            where: { 
+                [Op.not]: {category: 'Sans catégorie'}
+                }
+        })
+        ,Recipe.count({
+            where: { 
+                category: 'Sans catégorie'
+                }
+        })
+        , Recipe.count({
+            distinct: true,
+            col: 'category',
+            where: { 
+                [Op.not]: {category: 'Sans catégorie'}
+                }
+        })
+        
+    ]);
+
+    // Render data
+    res.render("index", {
+        title: "Recettes disponibles"
+        , recipe_count_with_category: numRecipesWithCategory
+        , recipe_count_without_category: numRecipesWithoutCategory
+        , category_count: numCategories
+    });
+
+});
+
+exports.recipe_list = asyncHandler(async (req, res, next) => {
+    const allRecipes = await Recipe.findAll({ 
+        attributes: ['id', 'title', 'category'],
+        order: [
+            ['category', 'ASC'],
+            ['title', 'ASC',]
+        ]
+    });
+
+    res.render("recipe_list", { title: "Recipe List", recipe_list: allRecipes });
+});

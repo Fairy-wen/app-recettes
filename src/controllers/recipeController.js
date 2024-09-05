@@ -1,20 +1,14 @@
-const express = require('express');
-const router = express.Router();
 const recipe = require('../../models/recipe');
-const path = require('path');
-const app = express();
+
+// const { body, validationResult } = require("express-validator");
+// const asyncHandler = require("express-async-handler");
 
 
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, '../views'));
+exports.recipe_create_get = function(req, res){
+    res.render('recipe_form', { title: "Ajouter une recette" });
+};
 
-router.get('/', function(req, res){
-
-    res.render('add_recipe');
-});
-
-router.post('/', function(req, res){
-
+exports.recipe_create_post = function(req, res){
     console.debug('Got post request at route add_recipe');
     const recipeInfos = req.body; //Get the parsed information
 
@@ -43,9 +37,10 @@ router.post('/', function(req, res){
         }
     });
 
-    res.redirect('../');
+    res.redirect('/');
+};
 
-});
-
-//export this router to use in our index.js
-module.exports = router;
+exports.recipe_details = function(req, res){
+    console.debug("displaying recipe details");
+    res.render('recipe_detail', { title: "Not yet implemented" });
+};

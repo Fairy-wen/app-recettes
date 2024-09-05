@@ -1,8 +1,12 @@
-link(rel='stylesheet', href='/css/styles.css')
+extends layout
 
-h2(style="text-align: center") Qu'est-ce qu'on mange ?
+block content
 
-p(style="text-align: center") Des cookies !
+    h1= title
 
-div(style="text-align: center")
-    a.btn(href='./add_recipe') Ajouter une recette
+    h2 Récapitulatif
+
+    p Le grimoire contient déjà !{recipe_count_with_category} recettes réparties dans !{category_count} catégories ainsi que !{recipe_count_without_category} sans catégorie.
+
+    div
+        a.btn(href='./recipe/add') Ajouter une recette
